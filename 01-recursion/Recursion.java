@@ -1,6 +1,7 @@
 public class Recursion {
 	public static void main(String[] args) {
-		System.out.println(sqrt(100));	
+		System.out.println(countNoDoubleLetterWords(3, ""));
+		System.out.println(sqrt(Double.parseDouble(args[0])));
 	}
 
 	public static String reverse(String s) {
@@ -15,13 +16,7 @@ public class Recursion {
 
 		for (char i = 'a'; i <= 'z'; i++) {
 			if (word.length() == 0 || word.charAt(word.length() - 1) != i) {
-				ret += countNoDoubleLetterWords(length - 1, word + i);
-			}
-		}
-
-		for (char i = 'A'; i <= 'Z'; i++) {
-			if (word.length() == 0 || word.charAt(word.length() - 1) != i) {
-				ret += countNoDoubleLetterWords(length - 1, word + i);
+				ret += countNoDoubleLetterWords(length - 1, word + (char)i);
 			}
 		}
 
