@@ -11,7 +11,7 @@ public class Recursion {
 
 		for (char i = 'a'; i <= 'z'; i++) {
 			if (word.length() == 0 || word.charAt(word.length() - 1) != i) {
-				ret += countNoDoubleLetterWords(length - 1, word + (char)i);
+				ret += countNoDoubleLetterWords(length - 1, word + i);
 			}
 		}
 
