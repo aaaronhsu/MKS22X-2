@@ -19,4 +19,16 @@ public class QueenBoard {
 		
 		return ret;
 	}
+
+	private boolean addQueen(int r, int c) {
+		if (board[r][c] == 0) {
+			board[r][c] = -1;
+			return true;
+		}
+		return false;
+	}
+
+	private void removeQueen(int r, int c) {
+		board[r][c] = 0;
+	}
 }
