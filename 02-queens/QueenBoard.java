@@ -66,7 +66,7 @@ public class QueenBoard {
 			board = new int[board.length][board.length];
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -82,5 +82,30 @@ public class QueenBoard {
 		}
 
 		return false;
+	}
+
+	public int countSolutions() {
+		int hold = countSolutions(0);
+
+		board = new int[board.length][board.length];
+		return hold;
+	}
+
+	private int countSolutions(int col) {
+		if (col == board.length) {
+			return 1;
+		}
+
+		int ret = 0;
+
+		for (int i = 0; i < board.length; i++) {
+			if (addQueen(i, col)) {
+				ret += countSolutions(col + 1);
+
+				removeQueen(i, col);
+			}
+		}
+
+		return ret;
 	}
 }
