@@ -57,15 +57,24 @@ public class QueenBoard {
 		}
 	}
 
-	// public boolean solve() throws IllegalStateException {
-		
-	// }
+	public boolean solve() throws IllegalStateException {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) if (board[i][j] != 0) throw new IllegalStateException();
+		}
+		return solve(0);
+	}
 
-	// private boolean solve(int col) {
-	// 	if (col == board.length) return true;
+	private boolean solve(int col) {
+		if (col == board.length) return true;
 
-	// 	for (int i = 0; i < board.length; i++) {
-	// 		if (addQueen(i, col))
-	// 	}
-	// }
+		for (int i = 0; i < board.length; i++) {
+			if (addQueen(i, col)) {
+				if (solve(col + 1)) return true;
+
+				removeQueen(i, col);
+			}
+		}
+
+		return false;
+	}
 }
