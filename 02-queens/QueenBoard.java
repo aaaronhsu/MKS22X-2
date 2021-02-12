@@ -61,7 +61,13 @@ public class QueenBoard {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board.length; j++) if (board[i][j] != 0) throw new IllegalStateException();
 		}
-		return solve(0);
+
+		if (!solve(0)) {
+			board = new int[board.length][board.length];
+			return false;
+		}
+		
+		return true;
 	}
 
 	private boolean solve(int col) {
