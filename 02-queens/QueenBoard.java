@@ -84,7 +84,11 @@ public class QueenBoard {
 		return false;
 	}
 
-	public int countSolutions() {
+	public int countSolutions() throws IllegalStateException {
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) if (board[i][j] != 0) throw new IllegalStateException();
+		}
+
 		int hold = countSolutions(0);
 
 		board = new int[board.length][board.length];
@@ -92,9 +96,7 @@ public class QueenBoard {
 	}
 
 	private int countSolutions(int col) {
-		if (col == board.length) {
-			return 1;
-		}
+		if (col == board.length) return 1;
 
 		int ret = 0;
 
