@@ -13,25 +13,17 @@ public class Maze {
       e.printStackTrace();
     }
   }
-
+  
   public static char[][] readBoard(String f) throws FileNotFoundException {
     Scanner in = new Scanner(new File(f));
-    int row = 0;
 
-    while (in.hasNextLine()) {
-      row++;
-      in.nextLine();
-    }
+    ArrayList<char[]> l = new ArrayList<>();
 
-    char[][] board = new char[row][];
-    in = new Scanner(new File(f));
+    while (in.hasNextLine()) l.add(in.nextLine().toCharArray());
 
-    row = 0;
+    char[][] board = new char[l.size()][];
 
-    while (in.hasNextLine()) {
-      board[row] = in.nextLine().toCharArray();
-      row++;
-    }
+    for (int i = 0; i < l.size(); i++) board[i] = l.get(i);
 
     return board;
   }
