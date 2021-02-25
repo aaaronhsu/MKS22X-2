@@ -13,7 +13,15 @@ public class Maze {
     }
 
     solve(board);
+    int ans = 0;
+    for (char[]i : board) {
+      for (char a : i) {
+        if (a == '@') ans++;
+      }
+    }
     for (char[] i : board) System.out.println(Arrays.toString(i));
+
+    System.out.println(ans);
   }
   
   public static char[][] readBoard(String f) throws FileNotFoundException {
@@ -48,6 +56,7 @@ public class Maze {
     boolean solution = solve(board, x + 1, y) || solve(board, x - 1, y) || solve(board, x, y + 1) || solve(board, x, y - 1);
     
     if (!solution) board[x][y] = '.';
+
     return solution;
 
   }
