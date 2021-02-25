@@ -36,5 +36,16 @@ public class Maze {
     System.out.println("\033[1;1H");
   }
 
+  public String toString() {
+    String ret = "";
+
+    for (char[] i : maze) {
+      for (char a : i) ret += a;
+      ret += "\n";
+    }
+
+    return ret;
+  }
+
   
 }
