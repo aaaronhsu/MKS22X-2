@@ -6,7 +6,7 @@ public class Maze {
   private boolean animate;
   
   public Maze(String filename) throws FileNotFoundException {
-    Scanner in = new Scanner(new File(f));
+    Scanner in = new Scanner(new File(filename));
 
     ArrayList<char[]> l = new ArrayList<>();
 
@@ -45,6 +45,35 @@ public class Maze {
     }
 
     return ret;
+  }
+
+  public int solve() {
+    if (animate) clearTerminal();
+
+    for (int i = 0; i < maze.length; i++) {
+      for (int j = 0; j < maze[0].length; j++) {
+        if (maze[i][j] == 'S') return solve(i, j);
+      }
+    }
+
+    return 0;
+  }
+
+  private int solve(int x, int y) {
+    if (maze[x][y] == '#' || maze[x][y] == '@' || maze[x][y] == '.') return 0;
+    //        wall                curr search              seen
+    if (maze[x][y] == 'E') return 1;
+
+    maze[x][y] = '@';
+
+    int solution = solve(x + 1, y) + solve(x - 1, y) + solve(x, y + 1) + solve(x, y - 1);
+
+    if (solution <= 0) {
+      maze[x][y] = '.';
+      return solution;
+    }
+
+    return solution + 1;
   }
 
   
