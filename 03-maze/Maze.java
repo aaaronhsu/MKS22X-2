@@ -44,7 +44,7 @@ public class Maze {
       ret += "\n";
     }
 
-    return ret;
+    return ret.substring(0, ret.length() - 1);
   }
 
   public int solve() {
@@ -65,7 +65,7 @@ public class Maze {
       System.out.println(this);
       wait(50);
     }
-    
+
     if (maze[x][y] == '#' || maze[x][y] == '@' || maze[x][y] == '.') return 0;
     //        wall                curr search              seen
     if (maze[x][y] == 'E') return 1;
