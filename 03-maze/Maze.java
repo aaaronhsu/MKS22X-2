@@ -60,6 +60,12 @@ public class Maze {
   }
 
   private int solve(int x, int y) {
+    if (animate) {
+      gotoTop();
+      System.out.println(this);
+      wait(50);
+    }
+    
     if (maze[x][y] == '#' || maze[x][y] == '@' || maze[x][y] == '.') return 0;
     //        wall                curr search              seen
     if (maze[x][y] == 'E') return 1;
