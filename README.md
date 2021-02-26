@@ -1,4 +1,4 @@
-# MKS22X (Second Semester)
+# MKS22X-2
 **This repository contains all material taught in the second semester of MKS22X taught by Mr. Konstantinovich**
 
 | Assignment  | Description |
