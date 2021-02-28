@@ -52,7 +52,7 @@ public class Maze {
 
     for (int i = 0; i < maze.length; i++) {
       for (int j = 0; j < maze[0].length; j++) {
-        if (maze[i][j] == 'S') return solve(i, j);
+        if (maze[i][j] == 'S') return solve(i, j) - 1;
       }
     }
 
@@ -72,14 +72,20 @@ public class Maze {
 
     maze[x][y] = '@';
 
-    int solution = solve(x + 1, y) + solve(x - 1, y) + solve(x, y + 1) + solve(x, y - 1);
+    int hold = solve(x + 1, y);
+    if (hold > 0) return hold + 1;
 
-    if (solution <= 0) {
-      maze[x][y] = '.';
-      return solution;
-    }
+    hold = solve(x - 1, y);
+    if (hold > 0) return hold + 1;
 
-    return solution + 1;
+    hold = solve(x, y + 1);
+    if (hold > 0) return hold + 1;
+
+    hold = solve(x, y - 1);
+    if (hold > 0) return hold + 1;
+
+    maze[x][y] = '.';
+    return 0;
   }
 
   
