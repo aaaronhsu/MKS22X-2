@@ -1,6 +1,33 @@
+import java.util.*;
+import java.io.*;
+
 public class Driver {
-  public static void main(String[] args) {
-    MazeGenerator1 a = new MazeGenerator1(50, 50, 600, 0);
+  public static void main(String[] args) throws Exception {
+
+    int x = 10;
+    int y = 10;
+
+    char[][] maze = new char[x][y];
+
+    for (int i = 0; i < x; i++) {
+      for (int j = 0; j < y; j++) {
+        maze[i][j] = '#';
+      }
+    }
+    
+    MazeGenerator.generate(maze, x, y, 1, 1);
+
+    PrintWriter out = new PrintWriter(new File("maze.dat"));
+    
+    for (int i = 0; i < maze.length; i++) {
+      for (int j = 0; j < maze[0].length; j++) {
+        out.print(maze[i][j]);
+      }
+
+      if (i != maze.length - 1) out.println();
+    }
+
+    out.close();
     
   }
 }
