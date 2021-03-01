@@ -72,17 +72,17 @@ public class Maze {
 
     maze[x][y] = '@';
 
-    int hold = solve(x + 1, y);
-    if (hold > 0) return hold + 1;
+    int nextSteps = solve(x + 1, y);
+    if (nextSteps > 0) return nextSteps + 1;
 
-    hold = solve(x - 1, y);
-    if (hold > 0) return hold + 1;
+    nextSteps = solve(x - 1, y);
+    if (nextSteps > 0) return nextSteps + 1;
 
-    hold = solve(x, y + 1);
-    if (hold > 0) return hold + 1;
+    nextSteps = solve(x, y + 1);
+    if (nextSteps > 0) return nextSteps + 1;
 
-    hold = solve(x, y - 1);
-    if (hold > 0) return hold + 1;
+    nextSteps = solve(x, y - 1);
+    if (nextSteps > 0) return nextSteps + 1;
 
     maze[x][y] = '.';
     return 0;
