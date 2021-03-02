@@ -3,28 +3,17 @@ import java.io.*;
 
 public class MazeGenerator {
 
-  static boolean setEnd = true;
+  static ArrayList<int[]> empty = new ArrayList<>();
+
   public static void generate(char[][] maze, int rows, int cols, int startrow, int startcol) {
-    setEnd = true;
+    empty = new ArrayList<>();
     generateMaze(maze, startrow, startcol);
 
     maze[startrow][startcol] = 'S';
-
-    while (setEnd) {
-      for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-          if (maze[i][j] == ' ') {
-            maze[i][j] = 'E';
-            setEnd = false;
-            break;
-          }
-        }
-        if (!setEnd) break;
-      }
-    }
+    int[] endPos = empty.get((int) (Math.random() * empty.size()));
+    maze[endPos[0]][endPos[1]] = 'E';
     
   }
-
 
   private static void generateMaze(char[][] maze, int x, int y) {
     if (x <= 0 || x >= maze.length - 1 || y <= 0 || y >= maze[0].length - 1) return;
@@ -37,11 +26,8 @@ public class MazeGenerator {
 
     if (adjacentCarvedRegions >= 2) return;
 
-    if (setEnd && Math.random() < (double) 4 / (maze.length * maze[0].length)) {
-      setEnd = false;
-      maze[x][y] = 'E';
-    }
-    else maze[x][y] = ' ';
+    maze[x][y] = ' ';
+    empty.add(new int[] {x, y});
 
     ArrayList<Integer> order = new ArrayList<>();
     order.add(1);
