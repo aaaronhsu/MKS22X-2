@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Driver {
+public class MazeGeneratorDriver {
   public static void main(String[] args) throws Exception {
 
     int x = 30;
