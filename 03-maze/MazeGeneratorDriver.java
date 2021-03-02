@@ -2,11 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class MazeGeneratorDriver {
-  public static void main(String[] args) throws Exception {
-
-    int x = 30;
-    int y = 50;
-
+  public static void writeMaze(int x, int y) throws FileNotFoundException {
     char[][] maze = new char[x][y];
 
     for (int i = 0; i < x; i++) {
@@ -28,6 +24,5 @@ public class MazeGeneratorDriver {
     }
 
     out.close();
-    
   }
 }
