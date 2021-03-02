@@ -8,7 +8,7 @@ public class MazeGenerator {
   public static void generate(char[][] maze, int rows, int cols, int startrow, int startcol) {
     farthestSpace = new int[] {0, startrow, startcol};
     generateMaze(maze, startrow, startcol, 0);
-    
+
     maze[startrow][startcol] = 'S';
     maze[farthestSpace[1]][farthestSpace[2]] = 'E';
   }
@@ -44,14 +44,4 @@ public class MazeGenerator {
       else generateMaze(maze, x, y - 1, dist + 1);
     }
   }
-
-  static class Space implements Comparable<Space> {
-    int x, y, dist;
-
-    public int compareTo(Space other) {
-      return Integer.compare(this.dist, other.dist);
-    }
-  }
-
-
 }
