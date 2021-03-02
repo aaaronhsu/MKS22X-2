@@ -12,7 +12,6 @@ public class MazeGenerator {
     maze[startrow][startcol] = 'S';
     int[] endPos = empty.get((int) (Math.random() * empty.size()));
     maze[endPos[0]][endPos[1]] = 'E';
-    
   }
 
   private static void generateMaze(char[][] maze, int x, int y) {
@@ -38,9 +37,11 @@ public class MazeGenerator {
     
     for (int i : order) {
       if (i == 1) generateMaze(maze, x + 1, y);
-      if (i == 2) generateMaze(maze, x - 1, y);
-      if (i == 3) generateMaze(maze, x, y + 1);
-      if (i == 4) generateMaze(maze, x, y - 1);
+      else if (i == 2) generateMaze(maze, x - 1, y);
+      else if (i == 3) generateMaze(maze, x, y + 1);
+      else generateMaze(maze, x, y - 1);
     }
   }
+
+
 }
