@@ -4,8 +4,8 @@ import java.io.*;
 public class Driver {
   public static void main(String[] args) throws Exception {
 
-    int x = 10;
-    int y = 10;
+    int x = 30;
+    int y = 30;
 
     char[][] maze = new char[x][y];
 
