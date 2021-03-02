@@ -5,7 +5,7 @@ public class Driver {
   public static void main(String[] args) throws Exception {
 
     int x = 30;
-    int y = 30;
+    int y = 50;
 
     char[][] maze = new char[x][y];
 
@@ -15,7 +15,7 @@ public class Driver {
       }
     }
     
-    MazeGenerator.generate(maze, x, y, 1, 1);
+    MazeGenerator.generateAmazing(maze, x, y, 1, 1);
 
     PrintWriter out = new PrintWriter(new File("maze.dat"));
     
