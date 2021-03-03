@@ -4,7 +4,7 @@ public class Driver {
   public static void main(String[] args) {
 
     try {
-      MazeGeneratorDriver.writeMaze(20, 20);
+      MazeGeneratorDriver.writeMaze(50, 100);
     }
     catch (FileNotFoundException e) {
       e.printStackTrace();

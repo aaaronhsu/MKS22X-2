@@ -5,4 +5,5 @@
 | ----------- | ----------- |
 | 01-recursion| A simple introduction to recursion to generate permutations of words and the implementation of sqrt |
 | 02-queens   | A solution to the [n-queens](https://en.wikipedia.org/wiki/Eight_queens_puzzle) puzzle |
-| 03-maze     | A maze solver that uses DFS to record the length of a path from a start character to an end character |
+| 03-maze     | A maze solver that uses DFS to record the length of a path from a start character to an end character. It also has a maze generator. |
+| 04-usaco    | A bronze and silver USACO question from 2007. |

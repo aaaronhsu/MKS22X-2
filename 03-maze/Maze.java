@@ -63,7 +63,7 @@ public class Maze {
     if (animate) {
       gotoTop();
       System.out.println(this);
-      wait(50);
+      wait(3);
     }
 
     if (maze[x][y] == '#' || maze[x][y] == '@' || maze[x][y] == '.') return 0;
