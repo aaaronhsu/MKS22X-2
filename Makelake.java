@@ -2,33 +2,26 @@ import java.util.*;
 import java.io.*;
 
 public class Makelake {
-	static StreamTokenizer in;
-	
-	static int nextInt() throws Exception {
-		in.nextToken();
-		return (int) in.nval;
-	}
-
 	public static void main(String[] args) throws Exception {
-		in = new StreamTokenizer(new BufferedReader(new FileReader("makelake.in")));
+		Scanner in = new Scanner(new File("makelake.in"));
     PrintWriter out = new PrintWriter(new File("makelake.out"));
 		
-    int x = nextInt();
-    int y = nextInt();
-    int depth = nextInt();
-    int n = nextInt();
+    int x = in.nextInt();
+    int y = in.nextInt();
+    int depth = in.nextInt();
+    int n = in.nextInt();
     int[][] board = new int[x][y];
 
     for (int i = 0; i < x; i++) {
       for (int j = 0; j < y; j++) {
-        board[i][j] = nextInt();
+        board[i][j] = in.nextInt();
       }
     }
 
     for (int i = 0; i < n; i++) {
-      int a = nextInt() - 1;
-      int b = nextInt() - 1;
-      int stomps = nextInt();
+      int a = in.nextInt() - 1;
+      int b = in.nextInt() - 1;
+      int stomps = in.nextInt();
 
       int max = -1;
       for (int c = a; c < a + 3; c++) {
