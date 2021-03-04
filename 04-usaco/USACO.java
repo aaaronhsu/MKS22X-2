@@ -3,8 +3,14 @@ import java.io.*;
 
 public class USACO {
   
-  public static int bronze(String f) throws FileNotFoundException {
-    Scanner in = new Scanner(new File(f));
+  public static int bronze(String f) {
+    Scanner in = new Scanner(System.in);
+    try {
+      in = new Scanner(new File(f));
+    }
+    catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
 
     int x = in.nextInt();
     int y = in.nextInt();
@@ -50,8 +56,14 @@ public class USACO {
     return ans * 5184;
   }
 
-  public static long silver(String f) throws FileNotFoundException {
-    Scanner in = new Scanner(new File(f));
+  public static long silver(String f) {
+    Scanner in = new Scanner(System.in);
+    try {
+      in = new Scanner(new File(f));
+    }
+    catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
 
     int x = in.nextInt();
     int y = in.nextInt();
