@@ -28,7 +28,6 @@ public class Ctravel {
 
     for (int i = 0; i < steps; i++) {
       int[][] temp = clone(ans);
-      System.out.println(1);
 
       for (int j = 0; j < x; j++) {
         for (int k = 0; k < y; k++) {
@@ -39,8 +38,6 @@ public class Ctravel {
     
     out.println(ans[in.nextInt() - 1][in.nextInt() - 1]);
     out.close();
-
-    for (int[] i : ans) System.out.println(Arrays.toString(i));
 	}
 
   public static int[][] clone(int[][] arr) {
