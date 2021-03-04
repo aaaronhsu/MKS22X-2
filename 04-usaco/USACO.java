@@ -80,6 +80,8 @@ public class USACO {
 
       dp = temp;
     }
+
+    return dp[in.nextInt() - 1][in.nextInt() - 1];
   }
 
   private static void fill(int[][] temp, int x, int y, int[][] dp, boolean[][] board) {
