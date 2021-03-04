@@ -7,11 +7,14 @@ For each stomping instruction:
   Loop over the mini rectangle again and update any value that is greater than (max - # of stomps) to be (max - # of stomps). If board[x][y] < 0, set it to be 0.
 Loop through the board and calculate the aggregate depth of the board by adding (water depth - board[x][y]) to a running count if board[x][y] < water depth.
 The answer is the aggregate depth * 5184.
+Runtime of O(RC + N)
+
 
 Silver
-Read in the input, storing whether or not a place is a wall using a 2d boolean array.
-Create a 2d int array to hold the answer called "board", setting board[x][y] to 1 given that (x, y) is the starting coordinate.
+Read in the input, storing whether or not a place is a wall using a 2d boolean array called "board".
+Create a 2d int array to hold the answer called dp, setting dp[x][y] to 1 given that (x, y) is the starting coordinate.
 Create a double for loop that runs t times.
-  Clone ans to a temp 2d int array.
-  If temp[x][y] > 0, then increment ans[x + 1][y], ans[x - 1][y], ans[x][y + 1], ans[x][y - 1] if such spaces exist and there isn't a wall there (use board[x][y]).
-The answer is ans[finalXPos][finalYPos].
+  Create a temporary 2d int array (this will build on the current dp array).
+  If there is no wall at (x, y), then increment ans[x][y] by dp[x + 1][y], dp[x - 1][y], dp[x][y + 1], dp[x][y - 1] if such spaces exist.
+The answer is dp[finalXPos][finalYPos].
+Runtime of O(NMT)

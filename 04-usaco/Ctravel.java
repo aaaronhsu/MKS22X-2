@@ -14,7 +14,7 @@ public class Ctravel {
     int y = in.nextInt();
     int steps = in.nextInt();
 
-    int[][] ans = new int[x][y];
+    int[][] dp = new int[x][y];
 
     board = new boolean[x][y];
     for (int i = 0; i < x; i++) {
@@ -24,19 +24,21 @@ public class Ctravel {
       }
     }
 
-    ans[in.nextInt() - 1][in.nextInt() - 1]++;
+    dp[in.nextInt() - 1][in.nextInt() - 1]++;
 
     for (int i = 0; i < steps; i++) {
-      int[][] temp = clone(ans);
+      int[][] temp = new int[x][y];
 
       for (int j = 0; j < x; j++) {
         for (int k = 0; k < y; k++) {
-          if (temp[j][k] > 0) fill(ans, j, k);
+          if (board[j][k]) fill(temp, j, k, dp);
         }
       }
+
+      dp = temp;
     }
     
-    out.println(ans[in.nextInt() - 1][in.nextInt() - 1]);
+    out.println(dp[in.nextInt() - 1][in.nextInt() - 1]);
     out.close();
 	}
 
@@ -46,10 +48,10 @@ public class Ctravel {
     return ret;
   }
 
-  public static void fill(int[][] ans, int x, int y) {
-    if (x + 1 >= 0 && x + 1 < ans.length && y >= 0 && y < ans[0].length && board[x + 1][y]) ans[x + 1][y]++;
-    if (x - 1 >= 0 && x - 1 < ans.length && y >= 0 && y < ans[0].length && board[x - 1][y]) ans[x - 1][y]++;
-    if (x >= 0 && x < ans.length && y + 1 >= 0 && y + 1 < ans[0].length && board[x][y + 1]) ans[x][y + 1]++;
-    if (x >= 0 && x < ans.length && y - 1 >= 0 && y - 1 < ans[0].length && board[x][y - 1]) ans[x][y - 1]++;
+  public static void fill(int[][] temp, int x, int y, int[][] dp) {
+    if (x + 1 >= 0 && x + 1 < temp.length && y >= 0 && y < temp[0].length && board[x + 1][y]) temp[x][y] += dp[x + 1][y];
+    if (x - 1 >= 0 && x - 1 < temp.length && y >= 0 && y < temp[0].length && board[x - 1][y]) temp[x][y] += dp[x - 1][y];
+    if (x >= 0 && x < temp.length && y + 1 >= 0 && y + 1 < temp[0].length && board[x][y + 1]) temp[x][y] += dp[x][y + 1];
+    if (x >= 0 && x < temp.length && y - 1 >= 0 && y - 1 < temp[0].length && board[x][y - 1]) temp[x][y] += dp[x][y - 1];
   }
 }
