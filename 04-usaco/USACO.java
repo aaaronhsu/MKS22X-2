@@ -59,7 +59,7 @@ public class USACO {
 
     int[][] dp = new int[x][y];
 
-    board = new boolean[x][y];
+    boolean[][] board = new boolean[x][y];
     for (int i = 0; i < x; i++) {
       String row = in.next();
       for (int j = 0; j < y; j++) {
