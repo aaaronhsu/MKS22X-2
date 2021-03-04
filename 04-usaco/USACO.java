@@ -52,5 +52,19 @@ public class USACO {
 
   public static long silver(String f) throws FileNotFoundException {
     Scanner in = new Scanner(new File(f));
+
+    int x = in.nextInt();
+    int y = in.nextInt();
+    int steps = in.nextInt();
+
+    int[][] dp = new int[x][y];
+
+    board = new boolean[x][y];
+    for (int i = 0; i < x; i++) {
+      String row = in.next();
+      for (int j = 0; j < y; j++) {
+        board[i][j] = row.charAt(j) == '.' ? true : false;
+      }
+    }
   }
 }
