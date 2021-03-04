@@ -46,6 +46,8 @@ public class USACO {
         ans += 0 < board[i][j] && board[i][j] < depth ? depth - board[i][j] : 0;
       }
     }
+
+    return ans * 5184;
   }
 
   public static long silver(String f) throws FileNotFoundException {
