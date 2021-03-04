@@ -83,6 +83,9 @@ public class USACO {
   }
 
   private static void fill(int[][] temp, int x, int y, int[][] dp, boolean[][] board) {
-    
+    if (x + 1 >= 0 && x + 1 < temp.length && y >= 0 && y < temp[0].length && board[x + 1][y]) temp[x][y] += dp[x + 1][y];
+    if (x - 1 >= 0 && x - 1 < temp.length && y >= 0 && y < temp[0].length && board[x - 1][y]) temp[x][y] += dp[x - 1][y];
+    if (x >= 0 && x < temp.length && y + 1 >= 0 && y + 1 < temp[0].length && board[x][y + 1]) temp[x][y] += dp[x][y + 1];
+    if (x >= 0 && x < temp.length && y - 1 >= 0 && y - 1 < temp[0].length && board[x][y - 1]) temp[x][y] += dp[x][y - 1];
   }
 }
