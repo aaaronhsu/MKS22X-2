@@ -66,5 +66,23 @@ public class USACO {
         board[i][j] = row.charAt(j) == '.' ? true : false;
       }
     }
+
+    dp[in.nextInt() - 1][in.nextInt() - 1]++;
+
+    for (int i = 0; i < steps; i++) {
+      int[][] temp = new int[x][y];
+
+      for (int j = 0; j < x; j++) {
+        for (int k = 0; k < y; k++) {
+          if (board[j][k]) fill(temp, j, k, dp, board);
+        }
+      }
+
+      dp = temp;
+    }
+  }
+
+  private static void fill(int[][] temp, int x, int y, int[][] dp, boolean[][] board) {
+    
   }
 }
