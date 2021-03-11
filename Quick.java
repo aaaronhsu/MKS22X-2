@@ -1,4 +1,15 @@
 public class Quick {
+  public static int quickselect(int[] data, int k) {
+    quickselect(data, k, 0, data.length);
+  }
+
+  public static int quickselect(int[] data, int k, int s, int e) {
+    int hold = partition(data, s, e);
+    if (hold == k) return data[k];
+    if (hold < k) return quickselect(data, k, s, k - 1);
+    return quickselect(data, k, k + 1, e);
+  }
+
   public static int partition(int[] data, int start, int end) {
     int hold = data[start];
     int medSwap = -1;
