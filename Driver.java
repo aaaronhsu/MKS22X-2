@@ -3,11 +3,12 @@ import java.io.*;
 
 public class Driver {
   public static void main(String[] args) {
-    int n = 100000000;
+    int n = 10000000;
     int[] arr = new int[n];
     for (int i = 0; i < n; i++) {
       arr[i] = (int) (Math.random() * n);
       // arr[i] = n - i;
+      // arr[i] = 1;
     }
     int[] test = arr.clone();
 
@@ -22,5 +23,10 @@ public class Driver {
     Arrays.sort(test);
     System.out.println(System.currentTimeMillis() - s);
     // System.out.println(Arrays.toString(arr));
+
+    // int[] arr = {3, 2, 7, 3, 3, 2};
+    // int[] hold = Quick.partitionDutch(arr, 0, arr.length - 1);
+    // System.out.println(Arrays.toString(arr));
+    // System.out.println(Arrays.toString(hold));
   }
 }
