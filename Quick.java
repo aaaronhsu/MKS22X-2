@@ -5,7 +5,7 @@ public class Quick {
   }
 
   public static void quicksort(int[] data, int s, int e) {
-    if (e - s <= 1) return;
+    if (s >= e) return;
     int hold = partition(data, s, e);
     quicksort(data, s, hold - 1);
     quicksort(data, hold + 1, e);
