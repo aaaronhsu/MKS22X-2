@@ -10,7 +10,9 @@ public class Driver {
       // arr[i] = n - i;
       // arr[i] = 1;
     }
+    // int[] arr = {3, 7, 0, 6, 3, 1, 0, 3, 8, 4};
     int[] test = arr.clone();
+    // System.out.println(Arrays.toString(test));
 
     // System.out.println(Quick.quickselect(arr, 4));
 
@@ -22,17 +24,19 @@ public class Driver {
     s = System.currentTimeMillis();
     Quick.quicksortDutch(test);
     System.out.println(System.currentTimeMillis() - s);
-    // System.out.println(Arrays.toString(arr));
 
-    // int[] arr = {3, 2, 7, 3, 3, 2};
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i] != test[i]) System.out.println("bad");
+    }
+
+    // System.out.println(Arrays.toString(arr));
+    // System.out.println(Arrays.toString(test));
+
+    // ----------------------------------------
+
+    // int[] arr = {1, 1, 1, 1, 1};
     // int[] hold = Quick.partitionDutch(arr, 0, arr.length - 1);
     // System.out.println(Arrays.toString(arr));
     // System.out.println(Arrays.toString(hold));
-
-    // int[] arr = {9, 8, 7, 6, 6, 6, 4, 2, 1};
-    // int[] hold = Quick.partitionDutchBetter(arr, 0, arr.length - 1);
-    // System.out.println(Arrays.toString(hold));
-
-    // System.out.println(Arrays.toString(arr));
   }
 }
