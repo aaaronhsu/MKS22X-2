@@ -1,7 +1,7 @@
 public class Quick {
 
   public static void quicksort(int[] data) {
-    quicksort(data, 0, data.length - 1);
+    quicksortDutch(data, 0, data.length - 1);
   }
 
   public static void quicksort(int[] data, int s, int e) {
@@ -58,20 +58,6 @@ public class Quick {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   public static void quicksortDutch(int[] data) {
     quicksortDutch(data, 0, data.length - 1);
   }
@@ -95,10 +81,11 @@ public class Quick {
     int midPt = start + 1;
     int endPt = start + 1;
   
-    int hold = arr[start];
+    
     int medSwap = (int) (Math.random() * (end + 1 - start) + start);
     boolean equals = false;
-  
+    
+    int hold = arr[start];
     arr[start] = arr[medSwap];
     arr[medSwap] = hold;
   
