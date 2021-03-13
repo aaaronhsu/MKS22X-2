@@ -8,7 +8,6 @@ public class Driver {
     for (int i = 0; i < n; i++) {
       arr[i] = (int) (Math.random() * n);
       // arr[i] = n - i;
-      // arr[i] = 1;
     }
     // int[] arr = {3, 7, 0, 6, 3, 1, 0, 3, 8, 4};
     int[] test = arr.clone();

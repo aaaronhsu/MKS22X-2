@@ -84,10 +84,11 @@ public class Quick {
       }
     }
     else if (s == e - 1) {
-      int min = Integer.min(data[s], data[e]);
-  
-      data[e] = Integer.max(data[s], data[e]);
-      data[s] = min;
+      if (data[s] > data[e]) {
+        int hold = data[s];
+        data[s] = data[e];
+        data[e] = hold;
+      }
     }
     else {
       int[] hold = partitionDutch(data, s, e);
