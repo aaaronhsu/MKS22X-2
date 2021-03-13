@@ -20,7 +20,7 @@ public class Driver {
     System.out.println(System.currentTimeMillis() - s);
 
     s = System.currentTimeMillis();
-    Arrays.sort(test);
+    Quick.quicksortDutch(test);
     System.out.println(System.currentTimeMillis() - s);
     // System.out.println(Arrays.toString(arr));
 
@@ -28,5 +28,11 @@ public class Driver {
     // int[] hold = Quick.partitionDutch(arr, 0, arr.length - 1);
     // System.out.println(Arrays.toString(arr));
     // System.out.println(Arrays.toString(hold));
+
+    // int[] arr = {9, 8, 7, 6, 6, 6, 4, 2, 1};
+    // int[] hold = Quick.partitionDutchBetter(arr, 0, arr.length - 1);
+    // System.out.println(Arrays.toString(hold));
+
+    // System.out.println(Arrays.toString(arr));
   }
 }
