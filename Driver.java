@@ -15,7 +15,7 @@ public class Driver {
     // System.out.println(Quick.quickselect(arr, 4));
 
     long s = System.currentTimeMillis();
-    Quick.quicksort(arr);
+    Arrays.sort(arr);
 
     System.out.println(System.currentTimeMillis() - s);
 
