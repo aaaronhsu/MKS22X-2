@@ -17,8 +17,42 @@ public class Quick {
 
   public static void quicksortDutch(int[] data, int s, int e) {
     if (s >= e) return;
-    if (s == e - 1) {
+    if (s == e - 2) {
+      if (data[s] < data[e]) {
+        if (data[e] < data[s + 1]) {
+          int mid = data[e];
+
+          data[e] = Integer.max(data[s], data[s + 1]);
+          data[s] = Integer.min(data[s], data[s + 1]);
+          data[s + 1] = mid;
+        }
+        else {
+          int min = Integer.min(data[s], data[e]);
+
+          data[e] = Integer.max(data[s], data[s]);
+          data[s] = min;
+        }
+      }
+      else {
+        if (data[s] < data[s + 1]) {
+          int mid = data[s];
+
+          data[s] = Integer.min(data[s + 1], data[e]);
+          data[e] = Integer.max(data[s + 1], data[e]);
+          data[s + 1] = mid;
+        }
+        else {
+          int min = Integer.min(data[s], data[e]);
+          
+          data[e] = Integer.max(data[s], data[s]);
+          data[s] = min;
+        }
+      }
+
+    }
+    else if (s == e - 1) {
       int min = Integer.min(data[s], data[e]);
+      
       data[e] = Integer.max(data[s], data[s]);
       data[s] = min;
     }
