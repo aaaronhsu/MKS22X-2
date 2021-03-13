@@ -80,9 +80,16 @@ public class Quick {
   public static int[] partitionDutch(int[] arr, int start, int end) {
     int midPt = start + 1;
     int endPt = start + 1;
-  
+    int medSwap = -1;
     
-    int medSwap = (int) (Math.random() * (end + 1 - start) + start);
+    if (arr[start] < arr[end]) {
+      if (arr[end] < arr[(end + start) / 2]) medSwap = end;
+      else medSwap = (end + start) / 2;
+    }
+    else {
+      if (arr[start] < arr[(end + start) / 2]) medSwap = start;
+      else medSwap = (end + start) / 2;
+    }
     boolean equals = false;
     
     int hold = arr[start];

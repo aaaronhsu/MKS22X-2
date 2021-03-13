@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Driver {
   public static void main(String[] args) {
-    int n = 100000000;
+    int n = 10000000;
     int[] arr = new int[n];
     for (int i = 0; i < n; i++) {
       arr[i] = (int) (Math.random() * n);
@@ -17,12 +17,12 @@ public class Driver {
     // System.out.println(Quick.quickselect(arr, 4));
 
     long s = System.currentTimeMillis();
-    Quick.quicksort(arr);
+    Arrays.sort(arr);
 
     System.out.println(System.currentTimeMillis() - s);
 
     s = System.currentTimeMillis();
-    Quick.quicksortDutch(test);
+    Quick.quicksort(test);
     System.out.println(System.currentTimeMillis() - s);
 
     for (int i = 0; i < arr.length; i++) {
