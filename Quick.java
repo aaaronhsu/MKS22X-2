@@ -11,25 +11,6 @@ public class Quick {
     quicksort(data, hold + 1, e);
   }
 
-  public static void quicksortDutch(int[] data) {
-    quicksortDutch(data, 0, data.length - 1);
-  }
-
-  public static void quicksortDutch(int[] data, int s, int e) {
-    if (s >= e) return;
-    if (s == e - 1) {
-      int min = Integer.min(data[s], data[e]);
-
-      data[e] = Integer.max(data[s], data[e]);
-      data[s] = min;
-    }
-    else {
-      int[] hold = partitionDutch(data, s, e);
-      quicksortDutch(data, s, hold[0]);
-      quicksortDutch(data, hold[1], e);
-    }
-  }
-
   public static int quickselect(int[] data, int k) {
     return quickselect(data, k, 0, data.length - 1);
   }
@@ -75,38 +56,64 @@ public class Quick {
     return point - 1;
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public static void quicksortDutch(int[] data) {
+    quicksortDutch(data, 0, data.length - 1);
+  }
+  
+  public static void quicksortDutch(int[] data, int s, int e) {
+    if (s >= e) return;
+    if (s == e - 1) {
+      int min = Integer.min(data[s], data[e]);
+  
+      data[e] = Integer.max(data[s], data[e]);
+      data[s] = min;
+    }
+    else {
+      int[] hold = partitionDutch(data, s, e);
+      quicksortDutch(data, s, hold[0]);
+      quicksortDutch(data, hold[1], e);
+    }
+  }
+  
   public static int[] partitionDutch(int[] arr, int start, int end) {
     int midPt = start + 1;
     int endPt = start + 1;
-
+  
     int hold = arr[start];
-    int medSwap = -1;
+    int medSwap = (int) (Math.random() * (end + 1 - start) + start);
     boolean equals = false;
-
-    if (arr[start] < arr[end]) {
-      if (arr[end] < arr[(end + start) / 2]) medSwap = end;
-      else medSwap = (end + start) / 2;
-    }
-    else {
-      if (arr[start] < arr[(end + start) / 2]) medSwap = start;
-      else medSwap = (end + start) / 2;
-    }
-
+  
     arr[start] = arr[medSwap];
     arr[medSwap] = hold;
-
+  
     for (int i = start + 1; i <= end; i++) {
       if (arr[i] < arr[start]) {
         hold = arr[midPt];
         arr[midPt] = arr[i];
         arr[i] = hold;
-
+  
         if (equals) {
           hold = arr[endPt];
           arr[endPt] = arr[i];
           arr[i] = hold;
         }
-
+  
         midPt++;
         endPt++;
       }
@@ -119,11 +126,11 @@ public class Quick {
         equals = true;
       }
     }
-
+  
     hold = arr[midPt - 1];
     arr[midPt - 1] = arr[start];
     arr[start] = hold;
-
+  
     return new int[] {midPt - 2, endPt};
   }
 }
