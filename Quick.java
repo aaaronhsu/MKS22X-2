@@ -64,7 +64,26 @@ public class Quick {
   
   public static void quicksortDutch(int[] data, int s, int e) {
     if (s >= e) return;
-    if (s == e - 1) {
+    if (s == e - 2) {
+      int hold = -1;
+
+      if (data[s] > data[s + 1]) {
+        hold = data[s];
+        data[s] = data[s + 1];
+        data[s + 1] = hold;
+      }
+      if (data[s] > data[e]) {
+        hold = data[s];
+        data[s] = data[e];
+        data[e] = hold;
+      }
+      if (data[s + 1] > data[e]) {
+        hold = data[s + 1];
+        data[s + 1] = data[e];
+        data[e] = hold; 
+      }
+    }
+    else if (s == e - 1) {
       int min = Integer.min(data[s], data[e]);
   
       data[e] = Integer.max(data[s], data[e]);
@@ -79,22 +98,23 @@ public class Quick {
   
   public static int[] partitionDutch(int[] arr, int start, int end) {
     int midPt = start + 1;
-    int endPt = start + 1;
-    int medSwap = -1;
+    int endPt = -1;
     
     if (arr[start] < arr[end]) {
-      if (arr[end] < arr[(end + start) / 2]) medSwap = end;
-      else medSwap = (end + start) / 2;
+      if (arr[end] < arr[(end + start) / 2]) endPt = end;
+      else endPt = (end + start) / 2;
     }
     else {
-      if (arr[start] < arr[(end + start) / 2]) medSwap = start;
-      else medSwap = (end + start) / 2;
+      if (arr[start] < arr[(end + start) / 2]) endPt = start;
+      else endPt = (end + start) / 2;
     }
     boolean equals = false;
     
     int hold = arr[start];
-    arr[start] = arr[medSwap];
-    arr[medSwap] = hold;
+    arr[start] = arr[endPt];
+    arr[endPt] = hold;
+
+    endPt = start + 1;
   
     for (int i = start + 1; i <= end; i++) {
       if (arr[i] < arr[start]) {
