@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Quick {
 
   public static void quicksort(int[] data) {
@@ -148,4 +150,16 @@ public class Quick {
   
     return new int[] {midPt - 2, endPt};
   }
+
+  // public static void insertionSort(int[] data, int start, int end) {
+  //   for (int i = start + 1; i < end; i++) {
+  //     int hold = data[i];
+
+  //     int loc = Math.abs(Arrays.binarySearch(data, start, i, hold) + 1);
+
+  //     for (int j = i; j > loc; j--) data[j] = data[j - 1];
+
+  //     data[loc] = hold;
+  //   }
+  // } 
 }
