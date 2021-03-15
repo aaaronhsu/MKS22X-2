@@ -6,6 +6,10 @@ public class Quick {
     quicksortDutch(data, 0, data.length - 1);
   }
 
+  public static void quicksort2(int[] data) {
+    quicksort3(data, 0, data.length - 1);
+  }
+
   public static void quicksort(int[] data, int s, int e) {
     if (s >= e) return;
     int hold = partition(data, s, e);
@@ -151,15 +155,52 @@ public class Quick {
     return new int[] {midPt - 2, endPt};
   }
 
-  // public static void insertionSort(int[] data, int start, int end) {
-  //   for (int i = start + 1; i < end; i++) {
-  //     int hold = data[i];
 
-  //     int loc = Math.abs(Arrays.binarySearch(data, start, i, hold) + 1);
 
-  //     for (int j = i; j > loc; j--) data[j] = data[j - 1];
 
-  //     data[loc] = hold;
-  //   }
-  // } 
+  public static void quicksort2(int[] data, int s, int e) {
+    if (s >= e) return;
+    if (s + 10 > e) insertionSort(data, s, e + 1);
+    else {
+      int[] hold = partitionDutch(data, s, e);
+      quicksort2(data, s, hold[0]);
+      quicksort2(data, hold[1], e);
+    }
+  }
+
+  public static void insertionSort(int[] data, int start, int end) {
+    for (int i = start + 1; i < end; i++) {
+      int hold = data[i];
+
+      int j = i;
+      while (hold > data[j]) {
+        data[j] = data[j - 1];
+        j--; 
+      }
+
+      data[j] = hold;
+    }
+  } 
+
+  public static void quicksort3(int[] data, int s, int e) {
+    if (s >= e) return;
+    if (s + 10 > e) insertionSort2(data, s, e + 1);
+    else {
+      int[] hold = partitionDutch(data, s, e);
+      quicksort2(data, s, hold[0]);
+      quicksort2(data, hold[1], e);
+    }
+  }
+
+  public static void insertionSort2(int[] data, int start, int end) {
+    for (int i = start + 1; i < end; i++) {
+      int hold = data[i];
+
+      int loc = Math.abs(Arrays.binarySearch(data, start, i, hold) + 1);
+
+      for (int j = i; j > loc; j--) data[j] = data[j - 1];
+
+      data[loc] = hold;
+    }
+  } 
 }
