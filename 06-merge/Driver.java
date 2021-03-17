@@ -4,7 +4,7 @@ import java.io.*;
 public class Driver {
   public static void main(String[] args) {
     
-    int n = 10000000;
+    int n = 100000000;
     int[] arr = new int[n];
     for (int i = 0; i < n; i++) {
       arr[i] = (int) (Math.random() * n);
@@ -16,11 +16,11 @@ public class Driver {
     // System.out.println(Arrays.toString(merge));
 
     long time = System.currentTimeMillis();
-    Merge.mergesort(arr);
+    Quick.quicksort(arr);
     System.out.println(System.currentTimeMillis() - time);
 
     time = System.currentTimeMillis();    
-    Merge.mergesort2(merge);
+    Merge.mergesort(merge);
     System.out.println(System.currentTimeMillis() - time);
 
     // System.out.println(Arrays.toString(merge));
