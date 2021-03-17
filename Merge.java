@@ -32,7 +32,7 @@ public class Merge {
       }
       // fill all with p1
       else if (p2 > e) {
-        while (p1 <= e / 2) {
+        while (p1 < mid) {
           data[i] = temp[p1];
 
           p1++;
