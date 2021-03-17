@@ -7,7 +7,7 @@ public class Quick {
   }
 
   public static void quicksort2(int[] data) {
-    quicksort3(data, 0, data.length - 1);
+    quicksort2(data, 0, data.length - 1);
   }
 
   public static void quicksort(int[] data, int s, int e) {
