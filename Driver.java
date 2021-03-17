@@ -15,11 +15,13 @@ public class Driver {
 
     // System.out.println(Arrays.toString(merge));
 
+    long time = System.currentTimeMillis();
+    Merge.mergesort(arr);
+    System.out.println(System.currentTimeMillis() - time);
 
-    Arrays.sort(arr);
-
-    // int[] merge = {2, 0, 3, 1};
-    Merge.mergesort(merge);
+    time = System.currentTimeMillis();    
+    Merge.mergesort2(merge);
+    System.out.println(System.currentTimeMillis() - time);
 
     // System.out.println(Arrays.toString(merge));
 
