@@ -3,11 +3,11 @@ import java.util.Arrays;
 public class Quick {
 
   public static void quicksort(int[] data) {
-    quicksortDutch(data, 0, data.length - 1);
+    quicksort2(data, 0, data.length - 1);
   }
 
   public static void quicksort2(int[] data) {
-    quicksort2(data, 0, data.length - 1);
+    quicksortDutch(data, 0, data.length - 1);
   }
 
   public static void quicksort(int[] data, int s, int e) {
@@ -160,7 +160,7 @@ public class Quick {
 
   public static void quicksort2(int[] data, int s, int e) {
     if (s >= e) return;
-    if (s + 10 > e) insertionSort(data, s, e + 1);
+    if (s + 10 > e) insertionSort2(data, s, e + 1);
     else {
       int[] hold = partitionDutch(data, s, e);
       quicksort2(data, s, hold[0]);
