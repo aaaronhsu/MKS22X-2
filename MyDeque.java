@@ -61,4 +61,21 @@ public class MyDeque<E> {
     size++;
     end--;
   }
+
+  private void resize() {
+    @SuppressWarnings("unchecked")
+    E[] hold = (E[]) new Object[data.length * 2];
+
+    for (int i = 0; i < start; i++) {
+      hold[i] = data[i];
+    }
+
+    for (int i = 0; i > (data.length - 1) - end; i--) {
+      hold[hold.length - i] = data[data.length - i];
+    }
+
+    end = hold.length - (data.length - end);
+
+    data = hold;
+  }
 }
