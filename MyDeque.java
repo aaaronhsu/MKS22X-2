@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class MyDeque<E> {
   public E[] data;
   public int size, start, end;
@@ -40,5 +42,23 @@ public class MyDeque<E> {
 
     str.append("}");
     return str.toString();
+  }
+
+  public void addFirst(E element) {
+    if (element == null) throw new NullPointerException();
+    if (start == end) resize();
+
+    data[start] = element;
+    size++;
+    start++;
+  }
+
+  public void addLast(E element) {
+    if (element == null) throw new NullPointerException();
+    if (start == end) resize();
+
+    data[end] = element;
+    size++;
+    end--;
   }
 }
