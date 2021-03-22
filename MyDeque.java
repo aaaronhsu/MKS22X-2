@@ -62,6 +62,22 @@ public class MyDeque<E> {
     end--;
   }
 
+  public E getFirst() {
+    if (start == 0) {
+      if (end == data.length - 1) throw new NoSuchElementException();
+      return data[data.length - 1];
+    }
+    return data[start - 1];
+  }
+
+  public E getLast() {
+    if (end == data.length - 1) {
+      if (start == 0) throw new NoSuchElementException();
+      return data[0];
+    }
+    return data[end + 1];
+  }
+
   private void resize() {
     @SuppressWarnings("unchecked")
     E[] hold = (E[]) new Object[data.length * 2];
