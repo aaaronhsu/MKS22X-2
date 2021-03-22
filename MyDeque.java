@@ -112,7 +112,17 @@ public class MyDeque<E> {
   }
 
   public E removeLast() {
+    if (end < start) {
+      if (end == 0) {
+        E hold = data[data.length - 1];
+        end = data.length - 1;
+        return hold;
+      }
+    }
 
+    E hold = data[end - 1];
+    end--;
+    return hold;
   }
 
   private void resize() {
