@@ -20,7 +20,7 @@ public class MyDeque<E> {
 
   public int size() {
     if (end > start) return end - start - 1;
-    return end + (data.length - start);
+    return end + (data.length - (start + 1));
   }
 
   public String toString() {
@@ -59,7 +59,8 @@ public class MyDeque<E> {
 
   public void addFirst(E element) {
     data[start] = element;
-    start = (start - 1) % data.length;
+    start--;
+    if (start < 0) start = data.length - 1;
   }
 
   public void addLast(E element) {
