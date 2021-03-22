@@ -3,16 +3,15 @@ public class Driver {
     MyDeque<Integer> deq = new MyDeque<Integer>();
 
     deq.addFirst(3);
-    deq.addFirst(2);
-    deq.addFirst(1);
-    deq.addFirst(56);
-    deq.addLast(12);
-
-    deq.addLast(13);
-    deq.addLast(15);
-
-    System.out.println(deq.getFirst());
-    System.out.println(deq.getLast());
+    deq.removeLast();
+    deq.addFirst(3);
+    deq.removeLast();
+    deq.addFirst(3);
+    deq.removeLast();
+    deq.addFirst(3);
+    deq.removeLast();
+    deq.addFirst(3);
+    deq.removeLast();
 
     System.out.println(deq.size());
     System.out.println(deq);
