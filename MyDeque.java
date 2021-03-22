@@ -59,7 +59,7 @@ public class MyDeque<E> {
 
   public void addFirst(E element) {
     if (start == end) resize();
-    
+
     data[start] = element;
     start--;
     if (start < 0) start = data.length - 1;
@@ -72,7 +72,25 @@ public class MyDeque<E> {
     end = (end + 1) % data.length;
   }
 
+  public E getFirst() {
+    if (start > end) {
+      if (start == data.length - 1) return data[0];
+      return data[start + 1];
+    }
+    if (start == 0) return null;
+    return data[start - 1];
+  }
+
+  public E getLast() {
+    if (end < start) {
+      if (end == 0) return data[data.length - 1];
+      return data[end - 1];
+    }
+    return data[end - 1];
+  }
+
   private void resize() {
+    @SuppressWarnings("unchecked")
     E[] hold = (E[]) new Object[data.length * 2];
 
     if (end > start) {

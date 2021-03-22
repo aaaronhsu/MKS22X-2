@@ -7,8 +7,12 @@ public class Driver {
     deq.addFirst(1);
     deq.addFirst(56);
     deq.addLast(12);
+
     deq.addLast(13);
     deq.addLast(15);
+
+    System.out.println(deq.getFirst());
+    System.out.println(deq.getLast());
 
     System.out.println(deq.size());
     System.out.println(deq);
