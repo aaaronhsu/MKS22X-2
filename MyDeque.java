@@ -78,6 +78,25 @@ public class MyDeque<E> {
     return data[end + 1];
   }
 
+  public E removeFirst() {
+    if (start == 0) {
+      if (end == data.length - 1) throw new NoSuchElementException();
+
+      E hold = data[data.length - 1];
+      data[data.length - 1] = null;
+      size--;
+      end++;
+      return hold;
+    }
+    
+    E hold = data[start - 1];
+    data[start - 1] = null;
+    size--;
+    start--;
+    return hold;
+  }
+
+
   private void resize() {
     @SuppressWarnings("unchecked")
     E[] hold = (E[]) new Object[data.length * 2];
