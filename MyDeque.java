@@ -6,7 +6,7 @@ public class MyDeque<E> {
   public MyDeque() {
     data = (E[]) new Object[10];
     start = 0;
-    end = 0;
+    end = 1;
     size = 0; 
   }
 
@@ -14,7 +14,7 @@ public class MyDeque<E> {
   public MyDeque(int n) {
     data = (E[]) new Object[n];
     start = 0;
-    end = 0;
+    end = 1;
     size = 0; 
   }
 
@@ -28,6 +28,11 @@ public class MyDeque<E> {
     str.append("{");
 
     if (end > start) {
+      if (end == start) {
+        str.append("}");
+        return str.toString();
+      }
+      
       for (int i = start + 1; i < end - 1; i++) str.append(data[i] + ", ");
       str.append(data[end - 1] + "}");
     }
