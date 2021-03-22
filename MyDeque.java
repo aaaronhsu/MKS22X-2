@@ -89,6 +89,32 @@ public class MyDeque<E> {
     return data[end - 1];
   }
 
+  public E removeFirst() {
+    if (start > end) {
+      if (start == data.length - 1) {
+        E hold = data[0];
+        data[0] = null;
+        start = 0;
+        return hold;
+      }
+
+      E hold = data[start + 1];
+      data[start + 1] = null;
+      start++;
+      return hold;
+    }
+    if (start == 0) return null;
+
+    E hold = data[start - 1];
+    data[start - 1] = null;
+    start--;
+    return hold;
+  }
+
+  public E removeLast() {
+
+  }
+
   private void resize() {
     @SuppressWarnings("unchecked")
     E[] hold = (E[]) new Object[data.length * 2];
