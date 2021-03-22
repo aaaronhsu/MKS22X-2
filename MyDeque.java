@@ -31,7 +31,7 @@ public class MyDeque<E> {
         str.append(data[0] + "}");
         return str.toString();
       }
-      else str.append(data[0]);
+      else str.append(data[0] + ", ");
     }
 
     if (end < data.length - 1) {
