@@ -70,8 +70,8 @@ public class MyDeque<E> {
       hold[i] = data[i];
     }
 
-    for (int i = 0; i > (data.length - 1) - end; i--) {
-      hold[hold.length - i] = data[data.length - i];
+    for (int i = 0; i < (data.length - 1) - end; i++) {
+      hold[hold.length - (i + 1)] = data[data.length - (i + 1)];
     }
 
     end = hold.length - (data.length - end);
