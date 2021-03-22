@@ -4,7 +4,7 @@ public class MyDeque<E> {
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
-    data = (E[]) new Object[10];
+    data = (E[]) new Object[16];
     start = 0;
     end = 1;
     size = 0; 
@@ -58,13 +58,44 @@ public class MyDeque<E> {
   }
 
   public void addFirst(E element) {
+    if (start == end) resize();
+    
     data[start] = element;
     start--;
     if (start < 0) start = data.length - 1;
   }
 
   public void addLast(E element) {
+    if (start == end) resize();
+
     data[end] = element;
     end = (end + 1) % data.length;
+  }
+
+  private void resize() {
+    E[] hold = (E[]) new Object[data.length * 2];
+
+    if (end > start) {
+      for (int i = start + 1; i < end; i++) {
+        hold[i] = data[i]; 
+      }
+    }
+    else {
+      int count = 0;
+      for (int i = start + 1; i < data.length; i++) {
+        hold[count] = data[i];
+        count++;
+      }
+
+      for (int i = 0; i < end; i++) {
+        hold[count] = data[i];
+        count++;
+      }
+
+      end += (data.length - (start + 1));
+      start = 0;
+    }
+
+    data = hold;
   }
 }
