@@ -22,6 +22,7 @@ public class MyDeque<E> {
   }
 
   public void addFirst(E element) {
+    resize();
     if (element == null) throw new NullPointerException();
 
     if (start == -1) {
@@ -42,6 +43,7 @@ public class MyDeque<E> {
   }
 
   public void addLast(E element) {
+    resize();
     if (element == null) throw new NullPointerException();
 
     if (end == -1) {
@@ -72,22 +74,24 @@ public class MyDeque<E> {
   }
 
   public E removeFirst() {
-    if (start == end && data[start] == null) throw new NoSuchElementException();
+    if (data[start] == null) throw new NoSuchElementException();
     E hold = data[start];
     data[start] = null;
     start++;
     if (start == data.length) start = 0;
 
+    size--;
     return hold;
   }
 
   public E removeLast() {
-    if (start == end && data[start] == null) throw new NoSuchElementException();
+    if (data[end] == null) throw new NoSuchElementException();
     E hold = data[end];
     data[end] = null;
     end--;
     if (end == -1) end = data.length - 1;
 
+    size--;
     return hold;
   }
 
@@ -112,5 +116,21 @@ public class MyDeque<E> {
     sb.append("}");
 
     return sb.toString();
+  }
+
+  private void resize() {
+    if (size == data.length) {
+      @SuppressWarnings("unchecked")
+      E[] hold = (E[]) new Object[data.length * 2];
+      hold[0] = data[start];
+
+      int index = 1;
+      for (int i = start + 1; i != start; i++) {
+        i %= hold.length;
+        hold[index] = data[i];
+      }
+
+      data = hold;
+    }
   }
 }
