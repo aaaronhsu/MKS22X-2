@@ -1,16 +1,16 @@
 import java.util.NoSuchElementException;
 
-public class MyDeque<E> {
+public class MyDeque3<E> {
   public E[] data;
   public int size, start, end;
 
   @SuppressWarnings("unchecked")
-  public MyDeque() {
+  public MyDeque3() {
     this(16);
   }
 
   @SuppressWarnings("unchecked")
-  public MyDeque(int n) {
+  public MyDeque3(int n) {
     data = (E[]) new Object[n];
     start = 0;
     end = data.length - 1;
@@ -94,6 +94,15 @@ public class MyDeque<E> {
     size--;
     start--;
     return hold;
+  }
+
+  public E removeLast() {
+    if (end == data.length - 1) {
+      if (start == 0) throw new NoSuchElementException();
+      E hold = data[0];
+      
+    }
+    return data[end + 1];
   }
 
 

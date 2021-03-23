@@ -15,13 +15,17 @@ public class MyDeque<E> {
     size = 0; 
   }
 
+  public int size() {
+    return size;
+  }
+
   public void addFirst(E element) {
     if (element == null) throw new NullPointerException();
 
     if (start == -1) {
       data[0] = element;
-      start = data.length - 1;
-      end = 1;
+      start = 0;
+      end = 0;
     }
     else if (start == 0) {
       data[data.length - 1] = element;
@@ -32,7 +36,7 @@ public class MyDeque<E> {
       start--;
     }
 
-
+    size++;
   }
 
   public void addLast(E element) {
@@ -40,8 +44,8 @@ public class MyDeque<E> {
 
     if (end == -1) {
       data[0] = element;
-      start = data.length - 1;
-      end = 1;
+      start = 0;
+      end = 0;
     }
     else if (end == data.length - 1) {
       data[0] = element;
@@ -51,5 +55,30 @@ public class MyDeque<E> {
       data[end + 1] = element;
       end++;
     }
+
+    size++;
+  }
+
+  public String toString() {
+    if (start == -1) return "{}";
+    
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    int cur = start;
+    boolean ele = false;
+
+    while (data[cur] != null) {
+      sb.append(data[cur] + ", ");
+      ele = true;
+      cur++;
+      cur %= data.length;
+    }
+
+    if (ele) {
+      sb.setLength(sb.length() - 2);
+    }
+    sb.append("}");
+
+    return sb.toString();
   }
 }
