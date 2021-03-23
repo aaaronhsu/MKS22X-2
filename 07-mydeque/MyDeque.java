@@ -6,7 +6,7 @@ public class MyDeque<E> {
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
-    this(2);
+    this(16);
   }
 
   @SuppressWarnings("unchecked")
