@@ -6,7 +6,7 @@ public class MyDeque<E> {
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
-    this(4);
+    this(2);
   }
 
   @SuppressWarnings("unchecked")
@@ -104,10 +104,11 @@ public class MyDeque<E> {
     boolean ele = false;
 
     while (data[cur] != null) {
+      if (ele && cur == start) break;
       str += data[cur] + ", ";
       ele = true;
       cur++;
-      cur %= data.length;
+      if (cur == data.length) cur = 0;
     }
 
     if (ele) str = str.substring(0, str.length() - 2);
@@ -133,7 +134,7 @@ public class MyDeque<E> {
       int index = 1;
 
       int i = start;
-      while (i != start) {
+      while (index < data.length) {
         i++;
         if (i == data.length) i = 0;
         hold[index] = data[i];

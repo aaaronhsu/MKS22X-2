@@ -7,8 +7,8 @@ public class MyDequeTester extends TesterMethods {
 	public static void main(String[] args) {
 		DEBUG = false;
 		boolean failure = false;
-		int tests = 100;
-		failure = toStringTester(25) || failure;
+		int tests = 1000;
+		failure = toStringTester(50) || failure;
 		failure = throwsTester(tests) || failure;
 		failure = addFirstTester(tests) || failure;
 		failure = addLastTester(tests) || failure;

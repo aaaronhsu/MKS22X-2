@@ -1,14 +1,34 @@
+import java.util.Arrays;
+
 public class Driver {
   public static void main(String[] args) {
     MyDeque<Integer> deq = new MyDeque<Integer>();
 
-    int n = 100000000;
-    for (int i = 0; i < n; i++) {
-      deq.addFirst(i);
-      deq.addLast(i - 1);
-      deq.removeFirst();
-    }
+    
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.addFirst(123);
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
+    deq.removeLast();
 
     System.out.println(deq.size());
+    System.out.println(deq);
+    System.out.println(Arrays.toString(deq.data));
   }
 }
