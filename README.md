@@ -8,3 +8,5 @@
 | 03-maze     | A maze solver that uses DFS to record the length of a path from a start character to an end character. It also has a maze generator. |
 | 04-usaco    | A bronze and silver USACO question from 2007. |
 | 05-quick    | An implementation of Quickselect and Quicksort |
+| 06-merge    | An implementation of Mergesort |
+| 07-mydeque  | An implementation of an ArrayDeque using circular arrays |

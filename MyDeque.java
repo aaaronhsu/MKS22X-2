@@ -64,17 +64,17 @@ public class MyDeque<E> {
   }
 
   public E getFirst() {
-    if (start == end && data[start] == null) throw new NoSuchElementException();
+    if (start == -1 || (start == end && data[start] == null)) throw new NoSuchElementException();
     return data[start];
   }
 
   public E getLast() {
-    if (start == end && data[start] == null) throw new NoSuchElementException();
+    if (start == -1 || (start == end && data[start] == null)) throw new NoSuchElementException();
     return data[end];
   }
 
   public E removeFirst() {
-    if (data[start] == null) throw new NoSuchElementException();
+    if (start == -1 || data[start] == null) throw new NoSuchElementException();
     E hold = data[start];
     data[start] = null;
     start++;
@@ -85,7 +85,7 @@ public class MyDeque<E> {
   }
 
   public E removeLast() {
-    if (data[end] == null) throw new NoSuchElementException();
+    if (start == -1 || data[end] == null) throw new NoSuchElementException();
     E hold = data[end];
     data[end] = null;
     end--;
@@ -98,34 +98,43 @@ public class MyDeque<E> {
   public String toString() {
     if (start == -1) return "{}";
 
-    StringBuilder sb = new StringBuilder();
-    sb.append("{");
+    String str = "{";
+
     int cur = start;
     boolean ele = false;
 
     while (data[cur] != null) {
-      sb.append(data[cur] + ", ");
+      str += data[cur] + ", ";
       ele = true;
       cur++;
       cur %= data.length;
     }
 
-    if (ele) {
-      sb.setLength(sb.length() - 2);
-    }
-    sb.append("}");
+    if (ele) str = str.substring(0, str.length() - 2);
+    str += "}";
 
-    return sb.toString();
+    return str;
   }
 
   private void resize() {
-    if (size == data.length) {
+    if (data.length == 0) {
+      @SuppressWarnings("unchecked")
+      E[] data = (E[]) new Object[16];
+      start = -1;
+      end = -1;
+      size = 0;
+      this.data = data;
+    }
+    else if (size == data.length) {
       @SuppressWarnings("unchecked")
       E[] hold = (E[]) new Object[data.length * 2];
       hold[0] = data[start];
 
       int index = 1;
-      for (int i = start + 1; i != start; i++) {
+
+      int i = start;
+      while (i != start) {
+        i++;
         if (i == data.length) i = 0;
         hold[index] = data[i];
         index++;
