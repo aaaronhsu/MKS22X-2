@@ -28,4 +28,18 @@ public class MyDeque<E> {
 
     data[start] = element;
   }
+
+  public void addLast(E element) {
+    if (element == null) throw new NullPointerException();
+    resize();
+
+    if (start == -1) {
+      start = 0;
+      end = 0;
+    }
+    else if (end == size - 1) end = 0;
+    else end++;
+
+    data[end] = element;
+  }
 }
