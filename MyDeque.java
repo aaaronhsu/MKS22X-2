@@ -71,6 +71,26 @@ public class MyDeque<E> {
     return data[end];
   }
 
+  public E removeFirst() {
+    if (start == end && data[start] == null) throw new NoSuchElementException();
+    E hold = data[start];
+    data[start] = null;
+    start++;
+    if (start == data.length) start = 0;
+
+    return hold;
+  }
+
+  public E removeLast() {
+    if (start == end && data[start] == null) throw new NoSuchElementException();
+    E hold = data[end];
+    data[end] = null;
+    end--;
+    if (end == -1) end = data.length - 1;
+
+    return hold;
+  }
+
   public String toString() {
     if (start == -1) return "{}";
 
