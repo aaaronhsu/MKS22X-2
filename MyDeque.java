@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MyDeque<E> {
   public E[] data;
   public int size, start, end;
@@ -59,9 +61,19 @@ public class MyDeque<E> {
     size++;
   }
 
+  public E getFirst() {
+    if (start == end && data[start] == null) throw new NoSuchElementException();
+    return data[start];
+  }
+
+  public E getLast() {
+    if (start == end && data[start] == null) throw new NoSuchElementException();
+    return data[end];
+  }
+
   public String toString() {
     if (start == -1) return "{}";
-    
+
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     int cur = start;
