@@ -11,35 +11,27 @@ public class MyDeque<E> {
   public MyDeque(int n) {
     data = (E[]) new Object[n];
     start = -1;
-    end = 0;
+    end = -1;
     size = 0; 
   }
 
   public void addFirst(E element) {
     if (element == null) throw new NullPointerException();
-    resize();
 
     if (start == -1) {
-      start = 0;
-      end = 0;
+      data[0] = element;
+      start = data.length -1;
+      end = 1;
     }
-    else if (start == 0) start = size - 1;
-    else start--;
-
-    data[start] = element;
-  }
-
-  public void addLast(E element) {
-    if (element == null) throw new NullPointerException();
-    resize();
-
-    if (start == -1) {
-      start = 0;
-      end = 0;
+    if (start == 0) {
+      data[data.length - 1] = element;
+      start = data.length - 1;
     }
-    else if (end == size - 1) end = 0;
-    else end++;
+    else {
+      data[start - 1] = element;
+      start--;
+    }
 
-    data[end] = element;
+
   }
 }
