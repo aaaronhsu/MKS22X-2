@@ -6,7 +6,7 @@ public class MyDeque<E> {
 
   @SuppressWarnings("unchecked")
   public MyDeque() {
-    this(16);
+    this(4);
   }
 
   @SuppressWarnings("unchecked")
@@ -126,11 +126,14 @@ public class MyDeque<E> {
 
       int index = 1;
       for (int i = start + 1; i != start; i++) {
-        i %= hold.length;
+        if (i == data.length) i = 0;
         hold[index] = data[i];
+        index++;
       }
 
       data = hold;
+      start = 0;
+      end = index - 1;
     }
   }
 }
