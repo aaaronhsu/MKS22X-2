@@ -15,7 +15,7 @@ public class Calculator {
         stack.add(Double.parseDouble(str));
       }
       catch (NumberFormatException e) {
-        if (stack.size() <= 1) throw new IllegalArgumentException("too few operands");
+        if (stack.size() < 2) throw new IllegalArgumentException("too few operands");
         
         Double hold = stack.pollLast();
 
