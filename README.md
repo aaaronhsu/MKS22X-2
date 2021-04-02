@@ -10,3 +10,4 @@
 | 05-quick    | An implementation of Quickselect and Quicksort |
 | 06-merge    | An implementation of Mergesort |
 | 07-mydeque  | An implementation of an ArrayDeque using circular arrays |
+| 08-calculator | An implementation of a post-fix calculator using an ArrayDeque |
