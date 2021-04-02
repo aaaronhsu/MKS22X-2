@@ -16,11 +16,18 @@ public class Calculator {
 
       try {
         stack.add(Double.parseDouble(str));
-        System.out.println("added " + Double.parseDouble(str));
       }
       catch (NumberFormatException e) {
         if (stack.size() <= 1) throw new IllegalArgumentException("too many operands");
-        System.out.println("not a number");
+        
+        Double hold = stack.pollLast();
+
+        if (str.equals("+")) stack.add(stack.pollLast() + hold);
+        else if (str.equals("-")) stack.add(stack.pollLast() - hold);
+        else if (str.equals("/")) stack.add(stack.pollLast() / hold);
+        else if (str.equals("*")) stack.add(stack.pollLast() * hold);
+        else if (str.equals("%")) stack.add(stack.pollLast() % hold);
+        else throw new IllegalArgumentException("not a valid operator");
       }
     }
 
