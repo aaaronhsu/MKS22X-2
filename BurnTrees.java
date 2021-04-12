@@ -56,10 +56,22 @@ public class BurnTrees{
 
       map[burn[0]][burn[1]] = ASH;
 
-      if (burn[0] + 1 < map.length && map[burn[0] + 1][burn[1]] == TREE) burnNext.add(new int[] {burn[0] + 1, burn[1]});
-      if (burn[0] - 1 >= 0 && map[burn[0] - 1][burn[1]] == TREE) burnNext.add(new int[] {burn[0] - 1, burn[1]});
-      if (burn[1] + 1 < map[0].length && map[burn[0]][burn[1] + 1] == TREE) burnNext.add(new int[] {burn[0], burn[1] + 1});
-      if (burn[1] - 1 >= 0 && map[burn[0]][burn[1] - 1] == TREE) burnNext.add(new int[] {burn[0], burn[1] - 1});
+      if (burn[0] + 1 < map.length && map[burn[0] + 1][burn[1]] == TREE) {
+        burnNext.add(new int[] {burn[0] + 1, burn[1]});
+        map[burn[0] + 1][burn[1]] = FIRE;
+      }
+      if (burn[0] - 1 >= 0 && map[burn[0] - 1][burn[1]] == TREE) {
+        burnNext.add(new int[] {burn[0] - 1, burn[1]});
+        map[burn[0] - 1][burn[1]] = FIRE;
+      }
+      if (burn[1] + 1 < map[0].length && map[burn[0]][burn[1] + 1] == TREE) {
+        burnNext.add(new int[] {burn[0], burn[1] + 1});
+        map[burn[0]][burn[1] + 1] = FIRE;
+      }
+      if (burn[1] - 1 >= 0 && map[burn[0]][burn[1] - 1] == TREE) {
+        burnNext.add(new int[] {burn[0], burn[1] - 1});
+        map[burn[0]][burn[1] - 1] = FIRE;
+      }
     }
 
     toBurn = burnNext;
