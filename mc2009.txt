@@ -1,0 +1,40 @@
+A,Value is initially 15, and will the loop will not execute when value is 28.
+A,All boolean values must be true for the 5 points to be awarded
+D,Holder variable that is assigned after its reference is overwritten
+C,E and D are added to the beginning after adding A B and C. Then the 4th element (3rd index) is removed (happens before E is added)
+A,Superclasses are the barebones of classes that inherit from it
+A,If k is 1, then the outer for-loop won't run so nothing is printed
+D,Outer for-loop will fire n-1 times and the inner will also fire n-1 times
+D,The second has indexing issues, the first and third don't
+C,The second parameter of substring is exclusive
+D,5 multiples of 10; 25 multiples of 2; 10 multiples of 5; from 1 to 50
+A,Only runs when the index contains the name
+B,I and III both are the same thing and they are both wrong because they are using the and operator
+C,Tail recursion to print out a number in reverse
+D,The first one swaps years and months. The second and the third take the extra months and assigns years/months to be correct values
+B,The first uses an and statement and the third incorrectly reverses the bounds.
+C,Three is a reference to the one object so they are the same thing
+B,Must hit 0 and start from j-1
+A,false or true is always true
+D,The rest mess up the bounds
+E,All implementations work
+
+
+
+
+
+D,Trace the code
+C,Update variable to be false if there is a remainder
+B,Will be true unless result is already true
+D,Trace the code
+E,Sub constructor doesn't take a parameter
+C,Both sides must be true and that is when a == b
+B,Trace the code
+C,10 + 9 + ... + 2 + 1
+A,Iterate through the entire array until the value at the index is what you're looking for
+E,All versions increment k by 3 and then print it out until k < 20 isn't satisfied
+C,Modifying parameters in functions doesn't affect the variable outside of the function
+E,seq is already declared as a variable so the first one will not work
+C,Doubles have weird arithmetic
+D,Head recursion sorta
+D,The start of the substring is changing a bit and will stop before the entire string is printed

@@ -13,10 +13,11 @@ public class Calculator {
 
       try {
         stack.add(Double.parseDouble(str));
+        
       }
       catch (NumberFormatException e) {
         if (stack.size() < 2) throw new IllegalArgumentException("too few operands");
-        
+        System.out.println(stack.size());
         Double hold = stack.pollLast();
 
         if (str.equals("+")) stack.add(stack.pollLast() + hold);

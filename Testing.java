@@ -3,9 +3,14 @@ import java.io.*;
 
 public class Testing {
 	public static void main(String[] args) {
-    int data = 0;
-    data = (data - 1) % 5;
+    Integer[] l = {1, 2, 3, 4};
 
-    System.out.println(data);
+    f(l);
+    System.out.println(Arrays.toString(l));
+
 	}
+
+  static void f(Integer[] l) {
+    l = new Integer[4];
+  }
 }
