@@ -164,9 +164,9 @@ public class BurnTrees{
 
 
   public static void main(String[]args)  throws InterruptedException{
-    int WIDTH = 20;
-    int HEIGHT = 20;
-    int DELAY = 200;
+    int WIDTH = 10;
+    int HEIGHT = 10;
+    int DELAY = 1000;
     double DENSITY = .7;
     if(args.length > 1){
       WIDTH = Integer.parseInt(args[0]);
