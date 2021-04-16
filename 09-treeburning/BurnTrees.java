@@ -7,7 +7,7 @@ public class BurnTrees{
   private static int ASH = 3;
   private static int SPACE = 0;
 
-  private static ArrayDeque<int[]> toBurn = new ArrayDeque<>();
+  private ArrayDeque<int[]> toBurn = new ArrayDeque<>();
 
   /*DO NOT UPDATE THIS
    *PLEASE READ SO YOU SEE HOW THE SIMULATION IS SUPPOSED TO WORK!!!
@@ -164,10 +164,10 @@ public class BurnTrees{
 
 
   public static void main(String[]args)  throws InterruptedException{
-    int WIDTH = 10;
-    int HEIGHT = 10;
-    int DELAY = 1000;
-    double DENSITY = .7;
+    int WIDTH = 100;
+    int HEIGHT = 30;
+    int DELAY = 50;
+    double DENSITY = 0.6;
     if(args.length > 1){
       WIDTH = Integer.parseInt(args[0]);
       HEIGHT = Integer.parseInt(args[1]);
