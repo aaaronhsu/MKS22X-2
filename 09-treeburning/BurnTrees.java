@@ -165,8 +165,8 @@ public class BurnTrees{
 
 
   public static void main(String[]args)  throws InterruptedException{
-    int WIDTH = 100;
-    int HEIGHT = 30;
+    int WIDTH = 10000;
+    int HEIGHT = 10000;
     int DELAY = 50;
     double DENSITY = 0.6;
     if(args.length > 1){
@@ -180,7 +180,7 @@ public class BurnTrees{
     BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
 
 
-    System.out.println(b.animate(DELAY));//animate all screens and print the final answer
+    // System.out.println(b.animate(DELAY));//animate all screens and print the final answer
     //System.out.println(b.outputAll());//print all screens and the final answer
   }
 
