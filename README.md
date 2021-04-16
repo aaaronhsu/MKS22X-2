@@ -11,3 +11,4 @@
 | 06-merge    | An implementation of Mergesort |
 | 07-mydeque  | An implementation of an ArrayDeque using circular arrays |
 | 08-calculator | An implementation of a post-fix calculator using an ArrayDeque |
+| 09-treeburning | A simulation of fire spreading in a forest |
