@@ -1,5 +1,5 @@
 import java.util.*;
-public class BurnTrees{
+public class BurnTreesXY {
   private int[][]map;
   private int ticks;
   private static int TREE = 2;
@@ -7,7 +7,8 @@ public class BurnTrees{
   private static int ASH = 3;
   private static int SPACE = 0;
 
-  private ArrayDeque<int[]> toBurn;
+  private ArrayDeque<Integer> toBurnX;
+  private ArrayDeque<Integer> toBurnY;
 
   private long memory = 0;
 
@@ -30,9 +31,10 @@ public class BurnTrees{
    *If you add more instance variables you can add more here,
    *otherwise it is complete
    */
-  public BurnTrees(int width,int height, double density){
+  public BurnTreesXY(int width,int height, double density){
     map = new int[height][width];
-    toBurn = new ArrayDeque<>();
+    toBurnX = new ArrayDeque<Integer>();
+    toBurnY = new ArrayDeque<Integer>();
     for(int r=0; r<map.length; r++ )
       for(int c=0; c<map[r].length; c++ )
         if(Math.random() < density)
@@ -46,7 +48,7 @@ public class BurnTrees{
   public boolean done(){
     //YOU MUST IMPLEMENT THIS
 
-    return toBurn.isEmpty();
+    return toBurnX.isEmpty();
   }
 
 
@@ -57,32 +59,39 @@ public class BurnTrees{
   public void tick(){
     ticks++;
     //YOU MUST IMPLEMENT THIS
-    ArrayDeque<int[]> burnNext = new ArrayDeque<>();
+    ArrayDeque<Integer> burnNextX = new ArrayDeque<>();
+    ArrayDeque<Integer> burnNextY = new ArrayDeque<>();
 
-    while (!toBurn.isEmpty()) {
-      int[] burn = toBurn.poll();
+    while (!toBurnX.isEmpty()) {
+      int burnX = toBurnX.poll();
+      int burnY = toBurnY.poll();
 
-      map[burn[0]][burn[1]] = ASH;
+      map[burnX][burnY] = ASH;
 
-      if (burn[0] + 1 < map.length && map[burn[0] + 1][burn[1]] == TREE) {
-        burnNext.add(new int[] {burn[0] + 1, burn[1]});
-        map[burn[0] + 1][burn[1]] = FIRE;
+      if (burnX + 1 < map.length && map[burnX + 1][burnY] == TREE) {
+        burnNextX.add(burnX + 1);
+        burnNextY.add(burnY);
+        map[burnX + 1][burnY] = FIRE;
       }
-      if (burn[0] - 1 >= 0 && map[burn[0] - 1][burn[1]] == TREE) {
-        burnNext.add(new int[] {burn[0] - 1, burn[1]});
-        map[burn[0] - 1][burn[1]] = FIRE;
+      if (burnX - 1 >= 0 && map[burnX - 1][burnY] == TREE) {
+        burnNextX.add(burnX - 1);
+        burnNextY.add(burnY);
+        map[burnX - 1][burnY] = FIRE;
       }
-      if (burn[1] + 1 < map[0].length && map[burn[0]][burn[1] + 1] == TREE) {
-        burnNext.add(new int[] {burn[0], burn[1] + 1});
-        map[burn[0]][burn[1] + 1] = FIRE;
+      if (burnY + 1 < map[0].length && map[burnX][burnY + 1] == TREE) {
+        burnNextX.add(burnX);
+        burnNextY.add(burnY + 1);
+        map[burnX][burnY + 1] = FIRE;
       }
-      if (burn[1] - 1 >= 0 && map[burn[0]][burn[1] - 1] == TREE) {
-        burnNext.add(new int[] {burn[0], burn[1] - 1});
-        map[burn[0]][burn[1] - 1] = FIRE;
+      if (burnY - 1 >= 0 && map[burnX][burnY - 1] == TREE) {
+        burnNextX.add(burnX);
+        burnNextY.add(burnY - 1);
+        map[burnX][burnY - 1] = FIRE;
       }
     }
 
-    toBurn = burnNext;
+    toBurnX = burnNextX;
+    toBurnY = burnNextY;
   }
 
   /*
@@ -95,7 +104,8 @@ public class BurnTrees{
       if(map[i][0]==TREE){
         map[i][0]=FIRE;
 
-        toBurn.add(new int[] {i, 0});
+        toBurnX.add(i);
+        toBurnY.add(0);
       }
     }
   }
@@ -172,8 +182,8 @@ public class BurnTrees{
 
 
   public static void main(String[]args)  throws InterruptedException{
-    int WIDTH = 1000;
-    int HEIGHT = 1000;
+    int WIDTH = 100000;
+    int HEIGHT = 100000;
     int DELAY = 50;
     double DENSITY = 1;
     if(args.length > 1){
@@ -184,7 +194,7 @@ public class BurnTrees{
     if(args.length > 3){
       DELAY = Integer.parseInt(args[3]);
     }
-    BurnTrees b = new BurnTrees(WIDTH,HEIGHT,DENSITY);
+    BurnTreesXY b = new BurnTreesXY(WIDTH,HEIGHT,DENSITY);
 
     b.run();
 
