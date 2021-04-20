@@ -1,0 +1,14 @@
+public double evaluate() {
+  if (isValue()) return getValue();
+  return perform(getOp(), evaluate(getLeft()), evaluate(getRight()));
+}
+
+public String toStringPostfix() {
+  if (isValue()) return getValue();
+  return getLeft().toStringPostfix() + " " + getRight().toStringPostfix() + getOp();
+}
+
+public String toString() {
+  if (isValue()) return getValue();
+  return "(" + getLeft().toString() + " " + getOp() + " " + getRight().toString() + ")";
+}
