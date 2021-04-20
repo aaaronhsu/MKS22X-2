@@ -1,6 +1,6 @@
 public double evaluate() {
   if (isValue()) return getValue();
-  return perform(getOp(), evaluate(getLeft()), evaluate(getRight()));
+  return perform(getOp(), getLeft().evaluate(), getRight().evaluate());
 }
 
 public String toStringPostfix() {
