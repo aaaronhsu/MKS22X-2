@@ -13,7 +13,7 @@ public class SimpleSortTester {
     int[] arr2 = arr.clone();
 
     Arrays.sort(arr);
-    Quick.quicksort(arr2);
+    MyHeap.heapsort(arr2);
 
     boolean pass = true;
     for (int i = 0; i < n; i++) {
@@ -42,7 +42,7 @@ public class SimpleSortTester {
           int[] arr3 = arr.clone();
   
           Arrays.sort(arr);
-          Quick.quicksort(arr2);
+          MyHeap.heapsort(arr2);
   
           pass = true;
           for (int i = 0; i < n; i++) {
