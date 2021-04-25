@@ -41,10 +41,7 @@ public class MyHeap {
   }
 
   private static void remove(int[] data, int size) {
-    int hold = data[0];
-    data[0] = data[size];
-    data[size] = hold;
-    
+    swap(data, 0, size);
     pushDown(data, size - 1, 0);
   }
 
