@@ -36,9 +36,15 @@ public class MyHeap {
         int hold = data[index];
         data[index] = data[a];
         data[a] = hold;
-        
+
         pushDown(data, size, a);
       }
+    }
+  }
+
+  private static void buildHeap(int[] data) {
+    for (int i = data.length - 1; i >= 0; i--) {
+      pushDown(data, data.length, i);
     }
   }
 }
