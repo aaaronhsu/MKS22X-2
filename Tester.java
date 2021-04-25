@@ -3,9 +3,9 @@ import java.io.*;
 
 public class Tester {
   public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0};
+    int[] arr = {3, 2, 6};
 
-    MyHeap.pushDown(arr, 7, 2);
+    MyHeap.heapsort(arr);
 
     System.out.println(Arrays.toString(arr));
   }  
