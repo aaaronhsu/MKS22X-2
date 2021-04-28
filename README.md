@@ -12,3 +12,5 @@
 | 07-mydeque  | An implementation of an ArrayDeque using circular arrays |
 | 08-calculator | An implementation of a post-fix calculator using an ArrayDeque |
 | 09-treeburning | A simulation of fire spreading in a forest |
+| 10-heapsort | An implementation of a heap as well as heapsort |
+| intro-to-processing | An introduction to Processing's basic shape functions |
