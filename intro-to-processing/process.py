@@ -6,8 +6,6 @@ f = open("rgb.txt", "w+")
 pixels = i.load()
 width, height = i.size
 
-all_pixels = []
-
 f.write('{')
 
 for x in range(width):
@@ -15,7 +13,6 @@ for x in range(width):
 
   for y in range(height):
     cpixel = pixels[x, y]
-    all_pixels.append(cpixel)
 
     f.write('{')
     f.write(str(cpixel[0]) + ', ')
