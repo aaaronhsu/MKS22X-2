@@ -9,7 +9,6 @@ void setup() {
 void draw() {
   background(200);
   for (Cow c : particles) {
-    c.changeRad();
     c.move();
     c.display();
   }
@@ -26,7 +25,7 @@ void mousePressed() {
    if (mouseButton == LEFT) {
      for (Cow i : particles) {
        if (dist(i.x, i.y, mouseX, mouseY) <= i.radius) {
-         i.click();
+         i.select();
        }
      }
    }
