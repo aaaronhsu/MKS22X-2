@@ -40,6 +40,10 @@ public class Cow {
     
     stroke(0);
     fill(c);
+    
+    if (this.colliding) {
+      fill(255, 0, 0, 75);
+    }
     ellipse(x, y, radius*2, radius*2);
     
     if (this.selected) {
@@ -59,6 +63,10 @@ public class Cow {
       text("dy: " + dy, x + radius + 5, y - radius / 2 + 20);
     }
     
+    if (this.selected && this.colliding) {
+      this.move();
+    }
+    
   }
 
   void select(){
@@ -68,9 +76,13 @@ public class Cow {
   
   void colliding(ArrayList<Cow> others) {
     for (Cow i : others) {
+      i.colliding = false;
+    }
+    
+    for (Cow i : others) {
       if (i == this) continue;
       
-      this.colliding = dist(i.x, i.y, x, y) <= radius + i.radius;
+      this.colliding = dist(i.x, i.y, x, y) <= (radius + i.radius) ? true : this.colliding;
     }
   }
 

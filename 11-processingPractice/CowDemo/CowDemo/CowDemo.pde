@@ -9,6 +9,7 @@ void setup() {
 void draw() {
   background(200);
   for (Cow c : particles) {
+    c.colliding(particles);
     c.move();
     c.display();
   }
