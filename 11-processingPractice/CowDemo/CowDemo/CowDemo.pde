@@ -27,6 +27,8 @@ void mousePressed() {
      for (Cow i : particles) {
        if (dist(i.x, i.y, mouseX, mouseY) <= i.radius) {
          i.select();
+         
+         i.turn(180);
        }
      }
    }
