@@ -95,4 +95,9 @@ public class Cow {
     this.dy = newY;
   }
 
+  void changeSpeed(float dv) {
+    this.dx += dv * cos(atan2(dy, dx));
+    this.dy += dv * sin(atan2(dy, dx));
+  }
+
 }

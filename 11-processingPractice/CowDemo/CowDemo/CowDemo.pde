@@ -28,7 +28,7 @@ void mousePressed() {
        if (dist(i.x, i.y, mouseX, mouseY) <= i.radius) {
          i.select();
          
-         i.turn(180);
+         i.changeSpeed(10);
        }
      }
    }
