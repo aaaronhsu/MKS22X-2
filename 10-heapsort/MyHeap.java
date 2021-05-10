@@ -42,7 +42,7 @@ public class MyHeap {
 
   private static void remove(int[] data, int size) {
     swap(data, 0, size);
-    pushDown(data, size - 1, 0);
+    pushDown(data, size, 0);
   }
 
   public static void heapsort(int[] data) {
