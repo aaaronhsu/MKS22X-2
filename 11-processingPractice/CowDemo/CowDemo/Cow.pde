@@ -86,4 +86,12 @@ public class Cow {
     }
   }
 
+  void turn(float angle) {
+    float newX = dx * cos(radians(angle) - dy * sin(radians(angle));
+    float newY = dx * sin(radians(angle)) + dy * cos(radians(angle));
+
+    this.dx = newX;
+    this.dy = newY;
+  }
+
 }
