@@ -1,4 +1,4 @@
-f = open("10k.txt")
+f = open("word.txt")
 
 data = f.readlines()
 
