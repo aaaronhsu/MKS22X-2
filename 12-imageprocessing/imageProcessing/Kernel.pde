@@ -23,9 +23,9 @@ public class Kernel {
         try {
           color c = img.get(i, j);
           
-          r += red(c) * kernel[i - x + 1][j - y + 1];
-          g += green(c) * kernel[i - x + 1][j - y + 1];
-          b += blue(c) * kernel[i - x + 1][j - y + 1];          
+          r += red(c) * kernel[j - y + 1][i - x + 1];
+          g += green(c) * kernel[j - y + 1][i - x + 1];
+          b += blue(c) * kernel[j - y + 1][i - x + 1];          
         }
         catch (Exception e) {
           return color(0);
