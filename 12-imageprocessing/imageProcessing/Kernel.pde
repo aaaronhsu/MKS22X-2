@@ -33,7 +33,7 @@ public class Kernel {
       }
     }
     
-    return color(r / 9, g / 9, b / 9);
+    return color(r, g, b);
     
   }
   

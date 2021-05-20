@@ -3,6 +3,9 @@ public class Player {
   boolean[] movement = {false, false, false, false};
   int bulletSpeed = 8;
   
+  int playerSize = 50;
+  int canRoll = 10; // if canRoll == 10, then you can roll
+  
   
   ArrayList<Projectile> projectiles = new ArrayList();
   
@@ -12,7 +15,22 @@ public class Player {
   }
   
   public void draw() {
-    ellipse(x, y, 50, 50);
+    
+    // rolling
+    if (playerSize != 50) {
+      
+      if (playerSize == 15) playerSize = 35;
+      
+      move();
+      playerSize++;
+    }
+    else {
+      if (canRoll != 10) canRoll++;
+    }
+    
+    ellipse(x, y, abs(25 - playerSize) * 2, abs(25 - playerSize) * 2);
+    
+    
     
     move();
     
@@ -51,10 +69,9 @@ public class Player {
     projectiles.add(proj);
   }
   
-  public void forcefield() {
-    for (int i = 0; i < 360; i += 10) {
-      Projectile proj = new Projectile(x, y, i);
-      projectiles.add(proj);
-    }
+  public void roll() {
+    if (canRoll < 10) return;
+    playerSize = 0;
+    canRoll = 0;
   }
 }

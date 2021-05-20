@@ -32,7 +32,10 @@ public class Projectile {
     
     if (despawnTime == 0) return;
     if (despawnTime != -1) despawnTime--;
+    
+    fill(255, 0, 0);
     ellipse(x, y, 10, 10);
+    fill(255, 255, 255);
     
     x += dx;
     y += dy;

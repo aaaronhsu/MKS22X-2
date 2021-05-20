@@ -9,7 +9,6 @@ void setup() {
 
 void draw() {
   background(0);
-  
   p.draw();
 }
 
@@ -26,7 +25,7 @@ void keyPressed() {
   else if (keyCode == 65) p.movement[2] = true;
   else if (keyCode == 83) p.movement[3] = true;
   
-  if (keyCode == 32) p.forcefield();
+  if (keyCode == 32) p.roll();
 }
 
 void keyReleased() {
