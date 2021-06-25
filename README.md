@@ -13,5 +13,7 @@
 | 08-calculator | An implementation of a post-fix calculator using an ArrayDeque |
 | 09-treeburning | A simulation of fire spreading in a forest |
 | 10-heapsort | An implementation of a heap as well as heapsort |
-| intro-to-processing | An introduction to Processing's basic shape functions |
+| 11-processingPractice | An introduction to Processing |
+| 12-imageprocessing | An implementation of kernels in Processing |
+| intro-to-processing | Processing never gonna give you up |
 | AP-questions | Text files containing answers to past APCS exams |
